@@ -36,12 +36,18 @@ class Game:
         """
         self.screen.fill(Colors.BLACK)
 
+        # Draw the sun
+        pygame.draw.circle(
+            self.screen,
+            Colors.YELLOW,
+            (round(self.width / 2), round(self.height / 2)),
+            20
+        )
+
+        # Draw other planets
         for planet in self.planets:
-            if not planet.is_sun:
-                pygame.draw.circle(self.screen, Colors.WHITE, *planet.shape)
-                pygame.draw.circle(self.screen, Colors.GREEN, *planet.orbit_shape, 1)
-            else:
-                pygame.draw.circle(self.screen, Colors.YELLOW, *planet.shape)
+            pygame.draw.circle(self.screen, Colors.GREEN, *planet.orbit_shape, 1)
+            pygame.draw.circle(self.screen, Colors.WHITE, *planet.shape)
 
     def update_screen(self, tick: bool = True) -> None:
         """
@@ -65,7 +71,6 @@ class Game:
         center = (self.width / 2, self.height / 2)
         max_orbit_radius = min(self.width / 2, self.height / 2) - 15
 
-        self.planets.append(Planet(center, 20, center, 0))  # Sun
         for _ in range(planets):
             self.planets.append(Planet.random_planet(center, max_orbit_radius))
 

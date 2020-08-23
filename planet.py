@@ -12,16 +12,12 @@ class Planet:
         self.center = center
         self.orbit_angle = orbit_angle
 
-        self.is_sun = self.position == self.center
-
-        if not self.is_sun:
-            self.orbit_radius = euclidean_distance(*position, *center)
-            self.rotation_angle = (365 / self.radius) / self.orbit_radius
-            self.rotation_angle /= 10
+        self.orbit_radius = euclidean_distance(*position, *center)
+        self.rotation_angle = (365 / self.radius) / self.orbit_radius
+        self.rotation_angle /= 10
 
     def rotate(self) -> None:
-        if not self.is_sun:
-            self.position = rotate(*self.position, *self.center, self.rotation_angle)
+        self.position = rotate(*self.position, *self.center, self.rotation_angle)
 
     @property
     def shape(self) -> t.Tuple[t.Tuple[int, int], int]:
