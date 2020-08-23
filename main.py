@@ -5,7 +5,7 @@ import pygame
 from util import Colors
 from planet import Planet
 
-PLANETS = 5
+PLANETS = 100
 WIDTH, HEIGHT = 1200, 900
 TICK_RATE = 100
 
@@ -36,7 +36,7 @@ class Game:
         """
         self.screen.fill(Colors.BLACK)
 
-        # Draw the sun
+        # Draw the star
         pygame.draw.circle(
             self.screen,
             Colors.YELLOW,

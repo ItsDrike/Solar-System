@@ -13,8 +13,8 @@ class Planet:
         self.orbit_angle = orbit_angle
 
         self.orbit_radius = euclidean_distance(*position, *center)
-        self.rotation_angle = (365 / self.radius) / self.orbit_radius
-        self.rotation_angle /= 10
+        self.rotation_angle = 365 / (self.radius * self.orbit_radius)
+        self.rotation_angle /= 10  # Arbitrary constant to slow things down
 
     def rotate(self) -> None:
         self.position = rotate(*self.position, *self.center, self.rotation_angle)
