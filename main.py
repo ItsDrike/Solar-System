@@ -27,6 +27,10 @@ class Game:
             if event.type == pygame.QUIT:
                 pygame.quit()
                 self.running = False
+            if event.type == pygame.KEYUP:
+                if event.key == pygame.K_ESCAPE:
+                    pygame.quit()
+                    self.running = False
 
     def redraw_screen(self) -> None:
         """
