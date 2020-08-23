@@ -24,7 +24,11 @@ def euclidean_distance(
     return sqrt(x_dist ** 2 + y_dist ** 2)
 
 
-def random_point_in_circle(circle_x: float, circle_y: float, max_radius: float) -> t.Tuple[float, float]:
+def random_point_in_circle(
+    circle_x: float,
+    circle_y: float,
+    max_radius: float
+) -> t.Tuple[float, float]:
     while True:
         x_offset = random.uniform(-max_radius, max_radius)
         y_offset = random.uniform(-max_radius, max_radius)
@@ -36,7 +40,13 @@ def random_point_in_circle(circle_x: float, circle_y: float, max_radius: float) 
     return (circle_x + x_offset), (circle_y + y_offset)
 
 
-def rotate(point_x: float, point_y: float, center_x: float, center_y: float, angle: float) -> t.Tuple[float, float]:
+def rotate(
+    point_x: float,
+    point_y: float,
+    center_x: float,
+    center_y: float,
+    angle: float
+) -> t.Tuple[float, float]:
     rotated_x = cos(angle) * (point_x - center_x) - sin(angle) * (point_y - center_y) + center_x
     rotated_y = sin(angle) * (point_x - center_x) + cos(angle) * (point_y - center_y) + center_y
 
