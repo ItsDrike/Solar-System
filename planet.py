@@ -1,6 +1,6 @@
 import typing as t
 import random
-from util import random_point_in_circle, euclidean_distance, rotate
+from util import euclidean_distance, rotate
 
 VECTOR = t.Tuple[float, float]
 
@@ -32,11 +32,13 @@ class Planet:
         cls,
         center: VECTOR,
         max_orbit_radius: float,
+        min_orbit_radius: float = 20,
         max_radius: float = 15,
         min_radius: float = 5,
         orbit_angle: float = 0.0
     ):
-        random_position = random_point_in_circle(*center, max_orbit_radius)
+        random_x = center[0] + random.uniform(min_orbit_radius, max_orbit_radius)
+        random_pos = (random_x, center[1])
         radius = random.uniform(min_radius, max_radius)
 
-        return cls(random_position, radius, center, orbit_angle)
+        return cls(random_pos, radius, center, orbit_angle)
