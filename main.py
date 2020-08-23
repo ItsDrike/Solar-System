@@ -5,7 +5,7 @@ import pygame
 from util import Colors
 from planet import Planet
 
-PLANETS = 100
+PLANETS = 8
 WIDTH, HEIGHT = 1200, 900
 TICK_RATE = 100
 
@@ -65,14 +65,15 @@ class Game:
         if tick:
             self.fps_clock.tick(self.tick_rate)
 
-    def main(self, planets: int) -> None:
+    def main(self, planets_amt: int) -> None:
         # Planet creation
         self.planets = []
         center = (self.width / 2, self.height / 2)
         max_orbit_radius = min(self.width / 2, self.height / 2) - 15
 
-        for _ in range(planets):
-            self.planets.append(Planet.random_planet(center, max_orbit_radius))
+        self.planets = Planet.generate_random_planets(
+            planets_amt, center, max_orbit_radius,
+        )
 
         # Main game loop
         while self.running:
