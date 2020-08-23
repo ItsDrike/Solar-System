@@ -54,12 +54,12 @@ def rotate(
 
 
 class Colors:
-    GREY = 125, 125, 125
-    BLUE = 100, 0, 255
-    RED = 240, 20, 30
-    GREEN = 30, 255, 20
     BLACK = 0, 0, 0
     WHITE = 255, 255, 255
+    GREY = 125, 125, 125
+    RED = 240, 20, 30
+    GREEN = 30, 255, 20
+    BLUE = 100, 0, 255
     YELLOW = 255, 255, 0
 
     ColorType = t.Tuple[int, int, int]
